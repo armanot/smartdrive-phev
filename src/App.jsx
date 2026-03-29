@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./styles.css";
 import carHero from "./assets/phev7_blue.png";
 
@@ -456,6 +456,15 @@ export default function App() {
 
   const [guideSearch, setGuideSearch] = useState("");
   const [guideCategory, setGuideCategory] = useState("All");
+  const [now, setNow] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setNow(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const handleVariantChange = (variant) => {
     setSelectedVariant(variant);
@@ -593,6 +602,32 @@ export default function App() {
     });
   }, [guideCategory, guideSearch]);
 
+  const formattedDateTime = now.toLocaleString("en-MY", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+
+  const billDifference =
+    (results?.newBill?.totalBill || 0) - (results?.currentBill?.totalBill || 0);
+
+  const smartStatusText =
+    results.zone === "Safe"
+      ? "Safe charging plan"
+      : results.zone === "Watch"
+      ? "Watch household usage"
+      : "High tariff risk";
+
+  const recommendedMode =
+    selectedVariant === "Premium Plus" && chargePercent >= 80
+      ? "Pure / Hybrid"
+      : chargePercent >= 60
+      ? "Hybrid"
+      : "Hybrid";
+
   const tabs = [
     { key: "home", label: "Home", icon: "🏠" },
     { key: "charge", label: "Charge", icon: "⚡" },
@@ -604,22 +639,34 @@ export default function App() {
     <div className="app-shell">
       <div className="app-container">
         <header className="topbar">
-          <p className="eyebrow">SmartDrive PHEV</p>
-          <h1>New owner companion</h1>
+          <div className="topbar-row">
+            <div>
+              <p className="eyebrow">SmartDrive PHEV</p>
+              <h1>New owner companion</h1>
+            </div>
+
+            <div className="datetime">{formattedDateTime}</div>
+          </div>
+
           <p className="subtext">Simple home charging and savings guide</p>
+
+          <div className={`smart-status ${results.zoneClass}`}>
+            <span className={`signal-dot ${results.zoneClass}`} />
+            <span>{smartStatusText}</span>
+          </div>
         </header>
 
         <main className="content">
           {activeTab === "home" && (
             <>
-              <section className="hero-card clean-hero">
+              <section className="hero-card clean-hero compact-hero">
                 <div className="hero-bg-glow" />
-                <div className="hero-content clean-layout">
+                <div className="hero-content compact-layout">
                   <div className="hero-copy">
                     <p className="label">Vehicle</p>
                     <h2>{carName}</h2>
                     <p className="hero-meta">
-                      Battery size: {batteryKwh} kWh • EV range: {evRangeKm} km
+                      Battery: {batteryKwh} kWh • EV range: {evRangeKm} km
                     </p>
 
                     <div className="hero-bottom">
@@ -634,10 +681,18 @@ export default function App() {
                         <strong>{chargePercent}%</strong>
                         <small>charge target</small>
                       </div>
+
+                      <div className="mini-pill">
+                        <span>🛣️</span>
+                        <strong>
+                          {results.estimatedEvRangePerActualCharge.toFixed(0)} km
+                        </strong>
+                        <small>range after charge</small>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="hero-visual">
+                  <div className="hero-visual compact-visual">
                     <div className={`zone-badge ${results.zoneClass}`}>
                       {results.zone} Zone
                     </div>
@@ -650,69 +705,129 @@ export default function App() {
                 </div>
               </section>
 
-              <section className="card premium-card pulse-card">
+              <section className="card premium-card action-card">
                 <div className="card-header">
-                  <p className="label">Should I charge tonight?</p>
-                  <span className={`signal-dot ${results.zoneClass}`} />
+                  <p className="label">Recommended action</p>
+                  <span className="glass-chip">Tonight</span>
                 </div>
+
                 <h3>{results.recommendChargeTonight}</h3>
                 <p>{results.advice}</p>
 
-                <div className="advice-strip">
-                  <div>
-                    <small>Best strategy</small>
-                    <strong>{results.chargeLevel}</strong>
+                <div className="action-grid">
+                  <div className="action-box">
+                    <small>Recommended target</small>
+                    <strong>{chargePercent}%</strong>
                   </div>
-                  <div>
-                    <small>Projected usage</small>
-                    <strong>{formatKwh(results.newTotalKwh)}</strong>
+
+                  <div className="action-box">
+                    <small>Expected EV range</small>
+                    <strong>
+                      {results.estimatedEvRangePerActualCharge.toFixed(0)} km
+                    </strong>
+                  </div>
+
+                  <div className="action-box">
+                    <small>Best mode today</small>
+                    <strong>{recommendedMode}</strong>
+                  </div>
+
+                  <div className="action-box">
+                    <small>Rate source</small>
+                    <strong>{results.rateSource}</strong>
                   </div>
                 </div>
               </section>
 
-              <section className="stats-grid">
-                <button className="card stat-card interactive" type="button">
-                  <p className="label">Cost per charge</p>
-                  <h3>{formatMoney(results.costPerCharge)}</h3>
-                  <span className="card-hint">Tap to compare scenarios</span>
-                </button>
+              <section className="home-group">
+                <div className="group-title">Cost</div>
+                <section className="stats-grid">
+                  <button className="card stat-card interactive" type="button">
+                    <p className="label">Cost per charge</p>
+                    <h3>{formatMoney(results.costPerCharge)}</h3>
+                    <span className="card-hint">Per charging session</span>
+                  </button>
 
-                <button className="card stat-card interactive" type="button">
-                  <p className="label">Monthly EV cost</p>
-                  <h3>{formatMoney(results.incrementalEvCost)}</h3>
-                  <span className="card-hint">Based on added home bill</span>
-                </button>
+                  <button className="card stat-card interactive" type="button">
+                    <p className="label">Monthly EV cost</p>
+                    <h3>{formatMoney(results.incrementalEvCost)}</h3>
+                    <span className="card-hint">Added home electricity</span>
+                  </button>
+                </section>
+              </section>
 
-                <button
-                  className="card stat-card interactive positive"
-                  type="button"
-                >
-                  <p className="label">EV cost per km</p>
-                  <h3>RM {results.evCostPerKm.toFixed(2)}</h3>
-                  <span className="card-hint">Estimated electric driving cost</span>
-                </button>
+              <section className="home-group">
+                <div className="group-title">Efficiency</div>
+                <section className="stats-grid">
+                  <button
+                    className="card stat-card interactive positive"
+                    type="button"
+                  >
+                    <p className="label">EV cost per km</p>
+                    <h3>RM {results.evCostPerKm.toFixed(2)}</h3>
+                    <span className="card-hint">
+                      Estimated electric driving cost
+                    </span>
+                  </button>
 
-                <button className="card stat-card interactive" type="button">
-                  <p className="label">Savings per km</p>
-                  <h3>RM {results.savingsPerKm.toFixed(2)}</h3>
-                  <span className="card-hint">Compared with petrol</span>
-                </button>
+                  <button className="card stat-card interactive" type="button">
+                    <p className="label">Savings per km</p>
+                    <h3>RM {results.savingsPerKm.toFixed(2)}</h3>
+                    <span className="card-hint">Compared with petrol</span>
+                  </button>
+                </section>
               </section>
 
               <section className="card premium-card">
                 <div className="card-header">
-                  <p className="label">Quick summary</p>
+                  <p className="label">Today</p>
+                  <span className="glass-chip">Quick view</span>
+                </div>
+
+                <div className="today-grid">
+                  <div className="today-item">
+                    <small>Variant</small>
+                    <strong>{selectedVariant}</strong>
+                  </div>
+                  <div className="today-item">
+                    <small>Charge target</small>
+                    <strong>{chargePercent}%</strong>
+                  </div>
+                  <div className="today-item">
+                    <small>Projected usage</small>
+                    <strong>{formatKwh(results.newTotalKwh)}</strong>
+                  </div>
+                  <div className="today-item">
+                    <small>Recommended mode</small>
+                    <strong>{recommendedMode}</strong>
+                  </div>
+                </div>
+              </section>
+
+              <section className="card premium-card">
+                <div className="card-header">
+                  <p className="label">Bill impact</p>
                   <span className="glass-chip">Live estimate</span>
                 </div>
 
-                <div className="summary-list">
-                  <div className="summary-row">
-                    <span>Current estimated bill</span>
+                <div className="bill-compare">
+                  <div className="bill-box">
+                    <small>Current bill</small>
                     <strong>{formatMoney(results.currentBill.totalBill)}</strong>
                   </div>
-                  <div className="summary-row">
-                    <span>New estimated bill</span>
+
+                  <div className="bill-arrow">→</div>
+
+                  <div className="bill-box">
+                    <small>Projected bill</small>
                     <strong>{formatMoney(results.newBill.totalBill)}</strong>
+                  </div>
+                </div>
+
+                <div className="summary-list summary-top-gap">
+                  <div className="summary-row">
+                    <span>Difference</span>
+                    <strong>{formatMoney(billDifference)}</strong>
                   </div>
                   <div className="summary-row">
                     <span>Added EV kWh</span>
@@ -884,7 +999,9 @@ export default function App() {
                   </div>
                   <div className="summary-row">
                     <span>Estimated EV range this charge</span>
-                    <strong>{results.estimatedEvRangePerActualCharge.toFixed(0)} km</strong>
+                    <strong>
+                      {results.estimatedEvRangePerActualCharge.toFixed(0)} km
+                    </strong>
                   </div>
                   <div className="summary-row">
                     <span>Rate source</span>
