@@ -36,6 +36,96 @@ const guideArticles = [
       "The petrol engine supports the car automatically. A PHEV does not become unusable just because the battery is low.",
   },
   {
+  title: "Is it okay to charge every day?",
+  category: "Battery",
+  content:
+    "Yes. Daily charging is normal for a PHEV, especially if you use the car often. What matters more is charging based on your actual driving needs rather than charging full all the time unnecessarily.",
+},
+{
+  title: "Should I always charge to 100%?",
+  category: "Battery",
+  content:
+    "Not always. If your next day's driving is short or moderate, charging to 60% to 80% may already be enough. Full charging makes more sense when you expect heavier use.",
+},
+{
+  title: "What happens when the battery is low?",
+  category: "Battery",
+  content:
+    "The car does not suddenly become unusable. In a PHEV, the petrol engine supports the car automatically, so you can continue driving normally.",
+},
+{
+  title: "Does AC use battery power?",
+  category: "Battery",
+  content:
+    "Yes. Air conditioning, especially in hot weather, can reduce EV-only efficiency. It does not usually cause a major problem, but it can shorten the electric range.",
+},
+{
+  title: "Does highway driving use battery faster?",
+  category: "Battery",
+  content:
+    "Usually yes. Higher speed tends to consume electric energy faster than steady city driving, so EV-only range is usually lower on highways.",
+},
+{
+  title: "Does slow driving save battery?",
+  category: "Battery",
+  content:
+    "Usually yes. Smooth city driving, gentle acceleration, and lower speeds generally help the battery last longer than aggressive driving.",
+},
+{
+  title: "Is fast charging bad for the battery?",
+  category: "Battery",
+  content:
+    "Fast charging is useful, especially when you need convenience, but frequent fast charging all the time is generally not as gentle as normal slower charging. For regular daily use, home charging is usually the better habit.",
+},
+{
+  title: "Is home charging better for daily use?",
+  category: "Battery",
+  content:
+    "Yes. Home charging is usually the most practical and comfortable way to keep your PHEV ready for daily driving, especially if you can charge overnight.",
+},
+{
+  title: "Why does my battery percentage drop faster some days?",
+  category: "Battery",
+  content:
+    "Battery use can vary depending on driving style, speed, traffic, air conditioning, terrain, passenger load, and whether the trip is short or long.",
+},
+{
+  title: "Should I worry if I do not charge for a few days?",
+  category: "Battery",
+  content:
+    "Not usually. A PHEV still has petrol backup, so the car remains usable. You simply lose some EV benefit until you charge again.",
+},
+{
+  title: "What is the best battery habit for a new owner?",
+  category: "Battery",
+  content:
+    "A simple habit is to charge based on your next day's needs, avoid unnecessary full charging every night, and use home charging as your regular routine.",
+},
+{
+  title: "Will battery size change how I use the car?",
+  category: "Battery",
+  content:
+    "Yes. A larger battery gives you more EV-only flexibility, but the best usage habit is still the same: charge according to your driving pattern and let the hybrid system help when needed.",
+},
+{
+  title: "Can I keep using the car even if I forget to charge?",
+  category: "Battery",
+  content:
+    "Yes. That is one of the main advantages of a PHEV. If the battery is low, the petrol engine can continue supporting your journey.",
+},
+{
+  title: "What causes battery efficiency to feel lower?",
+  category: "Battery",
+  content:
+    "Common reasons include high speed, heavy air conditioning use, steep roads, aggressive acceleration, extra vehicle load, and charging habits that do not match your driving needs.",
+},
+{
+  title: "What battery info should I check on the screen?",
+  category: "Battery",
+  content:
+    "As a new owner, focus on battery percentage, estimated EV range, energy flow, charging status, and any charging-related settings shown on the main screen.",
+},
+  {
     title: "What is the best mode for city driving?",
     category: "Modes",
     content:
@@ -124,6 +214,7 @@ const guideCategories = [
   "Long Trip",
   "Basics",
   "Screen & App",
+
 ];
 
 function estimateBillFromKwh(totalKwh) {
