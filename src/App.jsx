@@ -228,6 +228,108 @@ const guideArticles = [
       "Use Hybrid mode for mixed driving, longer trips, or when you want the car to manage EV and petrol more efficiently.",
   },
   {
+  title: "How many driving modes does the e.MAS 7 PHEV have?",
+  category: "Modes",
+  content:
+    "The brochure shows 3 driver-selectable driving modes: Pure, Hybrid, and Power. These are the main modes you choose directly.",
+},
+{
+  title: "What does Pure mode do?",
+  category: "Modes",
+  content:
+    "Pure mode focuses on electric driving. It is best for shorter daily trips, smoother city driving, and situations where you want quieter and cheaper EV-style driving.",
+},
+{
+  title: "When should I use Pure mode?",
+  category: "Modes",
+  content:
+    "Use Pure mode for short city trips, school runs, nearby errands, and regular daily driving when you still have enough battery available.",
+},
+{
+  title: "What does Hybrid mode do?",
+  category: "Modes",
+  content:
+    "Hybrid mode lets the car manage battery and engine more intelligently for mixed driving. It is usually the easiest everyday mode when your route includes different speeds or longer distances.",
+},
+{
+  title: "When should I use Hybrid mode?",
+  category: "Modes",
+  content:
+    "Use Hybrid mode for mixed city and highway driving, daily commuting, or anytime you want the car to balance efficiency and convenience automatically.",
+},
+{
+  title: "What does Power mode do?",
+  category: "Modes",
+  content:
+    "Power mode is for stronger performance and quicker response. It is more useful when you want more urgent acceleration rather than maximum efficiency.",
+},
+{
+  title: "When should I use Power mode?",
+  category: "Modes",
+  content:
+    "Use Power mode when overtaking, joining faster traffic, climbing harder routes, or when you want a more responsive driving feel.",
+},
+{
+  title: "Which mode is best for daily use?",
+  category: "Modes",
+  content:
+    "For many drivers, Hybrid mode is the safest all-round choice for daily use. Pure mode is best when you want to maximize electric driving, while Power mode is more situational.",
+},
+{
+  title: "Which mode saves the most energy?",
+  category: "Modes",
+  content:
+    "Pure mode is usually the best choice for maximizing electric-only use in suitable daily driving conditions. Smooth driving habits still matter whichever mode you use.",
+},
+{
+  title: "Do I need to keep changing modes all the time?",
+  category: "Modes",
+  content:
+    "Not necessarily. Many owners can leave the car in Hybrid mode most of the time, then switch to Pure for shorter EV-focused trips or Power when stronger acceleration is needed.",
+},
+{
+  title: "What is the difference between driving modes and power transitions?",
+  category: "Modes",
+  content:
+    "Driving modes are the ones you select yourself: Pure, Hybrid, and Power. Power transitions are the automatic ways the car uses battery and engine in the background while you drive.",
+},
+{
+  title: "What are the automatic power transitions?",
+  category: "Modes",
+  content:
+    "The brochure describes four automatic operating states: Electric-only drive, Range-extended electric drive, Direct-engine drive, and Dual-powered drive.",
+},
+{
+  title: "What is Electric-only drive?",
+  category: "Modes",
+  content:
+    "This is when the wheels are driven only by the electric motor. The brochure links this to higher battery state of charge and city driving situations.",
+},
+{
+  title: "What is Range-extended electric drive?",
+  category: "Modes",
+  content:
+    "This is when the engine generates power for the motor and battery while the wheels are still driven by the motor. It is part of the car's automatic energy management.",
+},
+{
+  title: "What is Direct-engine drive?",
+  category: "Modes",
+  content:
+    "This is when the wheels are driven by the engine. The brochure associates this with lower battery state of charge and highway cruising conditions.",
+},
+{
+  title: "What is Dual-powered drive?",
+  category: "Modes",
+  content:
+    "This is when the engine and electric motor work together to drive the wheels. The brochure links this to harder acceleration and overtaking situations.",
+},
+{
+  title: "What is the easiest way for a new owner to use modes?",
+  category: "Modes",
+  content:
+    "Start simple: use Hybrid as your default, Pure for short EV-friendly trips, and Power only when you want stronger response. Let the car handle the background transitions automatically.",
+},
+  {
     title: "Why should I watch 600 kWh at home?",
     category: "Savings",
     content:
@@ -824,6 +926,15 @@ export default function App() {
                     Charge based on your daily needs, not by habit. Partial
                     charging is often enough, and home charging is usually the
                     most practical routine.
+                  </p>
+                </section>
+              )}
+
+              {guideCategory === "Modes" && (
+                <section className="card premium-card">
+                  <p className="label">Modes basics</p>
+                  <p className="muted">
+                    The car gives you 3 driving modes you choose yourself: Pure, Hybrid, and Power. In the background, it also switches automatically between 4 power-operation states depending on battery level, speed, and driving situation.
                   </p>
                 </section>
               )}
