@@ -30,6 +30,102 @@ const guideArticles = [
       "Not always. Full charging every night is useful only if you need the full EV range the next day. Partial charging is often more practical.",
   },
   {
+  title: "How often should I charge my PHEV?",
+  category: "Charging",
+  content:
+    "Charge based on your daily usage, not by habit. If your daily trips are short, charging every 1 to 2 days may already be enough.",
+},
+{
+  title: "Should I charge every night?",
+  category: "Charging",
+  content:
+    "Not necessarily. Charging every night is convenient but not always needed. If you still have enough battery for the next day, you can skip charging.",
+},
+{
+  title: "What is the best charging percentage for daily use?",
+  category: "Charging",
+  content:
+    "For daily driving, charging to around 60% to 80% is usually enough. Full charging is more useful when you expect longer trips.",
+},
+{
+  title: "When should I charge to 100%?",
+  category: "Charging",
+  content:
+    "Charge to 100% when you plan to use the full EV range, such as long commutes or multiple trips in a day.",
+},
+{
+  title: "Is it okay to leave the car plugged in overnight?",
+  category: "Charging",
+  content:
+    "Yes. Charging overnight is one of the most common and convenient ways to use a PHEV at home.",
+},
+{
+  title: "Should I charge immediately after driving?",
+  category: "Charging",
+  content:
+    "You can, but it is not required. Charging based on your next usage is more important than charging immediately after every drive.",
+},
+{
+  title: "What is the difference between home charging and public charging?",
+  category: "Charging",
+  content:
+    "Home charging is usually slower but more convenient and cheaper. Public charging is faster and useful when you need a quick top-up.",
+},
+{
+  title: "Is slow charging better for daily use?",
+  category: "Charging",
+  content:
+    "Yes. For daily use, slow home charging is usually sufficient and more practical for regular charging habits.",
+},
+{
+  title: "What happens if I stop charging halfway?",
+  category: "Charging",
+  content:
+    "Nothing harmful happens. Partial charging is normal and often recommended for daily driving.",
+},
+{
+  title: "How long does a full charge usually take?",
+  category: "Charging",
+  content:
+    "Charging time depends on your charger type. Home charging usually takes several hours, while faster chargers can reduce the time significantly.",
+},
+{
+  title: "Should I worry about charging too frequently?",
+  category: "Charging",
+  content:
+    "No. Frequent charging is part of normal PHEV usage. What matters more is charging based on actual driving needs.",
+},
+{
+  title: "Can I rely only on petrol and not charge?",
+  category: "Charging",
+  content:
+    "Yes, the car will still run using petrol. However, you lose the cost-saving and efficiency benefits of using electric driving.",
+},
+{
+  title: "What is the simplest charging habit for beginners?",
+  category: "Charging",
+  content:
+    "A simple habit is to charge when needed, avoid unnecessary full charges, and use home charging as your main routine.",
+},
+{
+  title: "Should I charge before a long trip?",
+  category: "Charging",
+  content:
+    "Yes, if possible. Starting with a charged battery helps improve efficiency and gives you more flexibility during the trip.",
+},
+{
+  title: "How do I know if I need to charge today?",
+  category: "Charging",
+  content:
+    "Check your remaining battery and think about your next trip. If your battery can cover your expected driving, charging may not be necessary.",
+},
+{
+  title: "Does charging increase my electricity bill a lot?",
+  category: "Charging",
+  content:
+    "Charging adds to your home usage, but the overall cost is usually still lower than petrol, especially with efficient charging habits.",
+},
+  {
     title: "What happens when the battery gets low?",
     category: "Battery",
     content:
@@ -649,6 +745,22 @@ export default function App() {
                   ))}
                 </div>
               </section>
+              {guideCategory === "Battery" && (
+                <section className="card premium-card">
+                  <p className="label">Battery basics</p>
+                  <p className="muted">
+                    Focus on three things first: charge based on need, understand what happens when battery is low, and know that driving style affects EV efficiency.
+                  </p>
+                </section>
+              )}
+              {guideCategory === "Charging" && (
+              <section className="card premium-card">
+                <p className="label">Charging basics</p>
+                <p className="muted">
+                  Charge based on your daily needs, not by habit. Partial charging is often enough, and home charging is usually the most practical routine.
+                </p>
+              </section>
+            )}
 
               <section className="guide-results">
                 {filteredGuides.length > 0 ? (
