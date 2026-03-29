@@ -10,6 +10,12 @@ const KWTBB_RATE = 0.016;
 const SERVICE_TAX_RATE = 0.08;
 const ST_THRESHOLD_KWH = 600;
 
+const variants = {
+  Prime: 18.4,
+  Premium: 18.4,
+  "Premium Plus": 29.8,
+};
+
 const guideArticles = [
   {
     title: "When should I charge my PHEV?",
@@ -108,7 +114,8 @@ function formatKwh(value) {
 export default function App() {
   const [activeTab, setActiveTab] = useState("home");
 
-  const [batteryKwh, setBatteryKwh] = useState(18.4);
+  const [selectedVariant, setSelectedVariant] = useState("Premium");
+  const [batteryKwh, setBatteryKwh] = useState(variants["Premium"]);
   const [householdKwh, setHouseholdKwh] = useState(329);
   const [chargesPerMonth, setChargesPerMonth] = useState(15);
   const [chargePercent, setChargePercent] = useState(70);
@@ -117,6 +124,12 @@ export default function App() {
 
   const [guideSearch, setGuideSearch] = useState("");
   const [guideCategory, setGuideCategory] = useState("All");
+
+  const handleVariantChange = (variant) => {
+    setSelectedVariant(variant);
+    setBatteryKwh(variants[variant]);
+    setCarName(`PROTON e.MAS 7 PHEV ${variant}`);
+  };
 
   const results = useMemo(() => {
     const safeBatteryKwh = Number(batteryKwh) || 0;
@@ -344,6 +357,20 @@ export default function App() {
                   </div>
 
                   <div className="field">
+                    <label>Select Variant (affects features, not always battery)</label>
+                    <select
+                      value={selectedVariant}
+                      onChange={(e) => handleVariantChange(e.target.value)}
+                    >
+                      {Object.keys(variants).map((variant) => (
+                        <option key={variant} value={variant}>
+                          {variant}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="field">
                     <label>Battery size (kWh)</label>
                     <input
                       type="number"
@@ -351,6 +378,9 @@ export default function App() {
                       value={batteryKwh}
                       onChange={(e) => setBatteryKwh(e.target.value)}
                     />
+                    <p className="muted">
+                      Prime and Premium share the same battery size. Differences are mainly features.
+                    </p>
                   </div>
 
                   <div className="field">
