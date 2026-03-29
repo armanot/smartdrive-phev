@@ -71,6 +71,48 @@ const guideArticles = [
     content:
       "Charge when useful, drive normally, use EV for short trips, and let Hybrid mode help for mixed or longer journeys.",
   },
+  {
+  title: "How do I start using the main screen?",
+  category: "Screen & App",
+  content:
+    "Start by getting familiar with the home screen, climate controls, navigation, media, and vehicle settings. The main screen is the control center for many daily functions inside the car."
+},
+{
+  title: "What should I set up first after getting the car?",
+  category: "Screen & App",
+  content:
+    "Set up the Proton app, pair your phone, check connectivity, learn the shortcut icons, test voice command, and review vehicle settings before your first regular drive."
+},
+{
+  title: "Which functions are controlled from the mobile app?",
+  category: "Screen & App",
+  content:
+    "The app is typically used for remote access, status checking, and convenient pre-drive controls. It is useful for checking battery or vehicle information without sitting inside the car."
+},
+{
+  title: "Which functions should I use from the car screen?",
+  category: "Screen & App",
+  content:
+    "Use the in-car screen for navigation, media, climate, driving information, camera view, and settings that you need while seated in the vehicle."
+},
+{
+  title: "How do I use the voice assistant?",
+  category: "Screen & App",
+  content:
+    "Use voice command for simple hands-free actions like navigation, media, or climate adjustments. It is helpful when you want to reduce touching the screen while driving."
+},
+{
+  title: "Why does the car feel app-driven?",
+  category: "Screen & App",
+  content:
+    "Because many convenience features are connected digitally. The screen manages in-car functions, while the mobile app extends access and monitoring from outside the car."
+},
+{
+  title: "What should I learn first on the screen as a new owner?",
+  category: "Screen & App",
+  content:
+    "Focus first on home screen shortcuts, battery and energy information, charging-related info, navigation, climate control, phone connection, and settings."
+},
 ];
 
 const guideCategories = [
@@ -81,6 +123,7 @@ const guideCategories = [
   "Savings",
   "Long Trip",
   "Basics",
+  "Screen & App",
 ];
 
 function estimateBillFromKwh(totalKwh) {
