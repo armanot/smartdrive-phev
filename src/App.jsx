@@ -658,195 +658,155 @@ export default function App() {
 
         <main className="content">
           {activeTab === "home" && (
-            <>
-              <section className="hero-card clean-hero compact-hero">
-                <div className="hero-bg-glow" />
-                <div className="hero-content compact-layout">
-                  <div className="hero-copy">
-                    <p className="label">Vehicle</p>
-                    <h2>{carName}</h2>
-                    <p className="hero-meta">
-                      Battery: {batteryKwh} kWh • EV range: {evRangeKm} km
-                    </p>
+  <>
+    <section className="tesla-hero">
+      <div className="tesla-hero-bg" />
+      <div className="tesla-hero-content">
+        <div className="tesla-hero-top">
+          <div>
+            <p className="eyebrow">SmartDrive PHEV</p>
+            <h2 className="tesla-title">{carName}</h2>
+            <p className="tesla-subtitle">
+              {selectedVariant} • {batteryKwh} kWh • Official EV range {evRangeKm} km
+            </p>
+          </div>
 
-                    <div className="hero-bottom">
-                      <div className="mini-pill">
-                        <span>⚡</span>
-                        <strong>{formatMoney(results.costPerCharge)}</strong>
-                        <small>per charge</small>
-                      </div>
+          <div className={`tesla-status ${results.zoneClass}`}>
+            <span className={`signal-dot ${results.zoneClass}`} />
+            <span>{smartStatusText}</span>
+          </div>
+        </div>
 
-                      <div className="mini-pill">
-                        <span>🔋</span>
-                        <strong>{chargePercent}%</strong>
-                        <small>charge target</small>
-                      </div>
+        <div className="tesla-hero-main">
+          <div className="tesla-left">
+            <div className="tesla-battery-card">
+              <div className="tesla-battery-header">
+                <span>Charge target</span>
+                <strong>{chargePercent}%</strong>
+              </div>
 
-                      <div className="mini-pill">
-                        <span>🛣️</span>
-                        <strong>
-                          {results.estimatedEvRangePerActualCharge.toFixed(0)} km
-                        </strong>
-                        <small>range after charge</small>
-                      </div>
-                    </div>
-                  </div>
+              <div className="battery-track">
+                <div
+                  className="battery-fill"
+                  style={{ width: `${chargePercent}%` }}
+                />
+              </div>
 
-                  <div className="hero-visual compact-visual">
-                    <div className={`zone-badge ${results.zoneClass}`}>
-                      {results.zone} Zone
-                    </div>
-                    <img
-                      src={carHero}
-                      alt="PROTON e.MAS 7 PHEV"
-                      className="hero-car"
-                    />
-                  </div>
-                </div>
-              </section>
+              <div className="battery-meta">
+                <span>Estimated range after charge</span>
+                <strong>{results.estimatedEvRangePerActualCharge.toFixed(0)} km</strong>
+              </div>
+            </div>
 
-              <section className="card premium-card action-card">
-                <div className="card-header">
-                  <p className="label">Recommended action</p>
-                  <span className="glass-chip">Tonight</span>
-                </div>
+            <div className="tesla-mini-stats">
+              <div className="tesla-mini-card">
+                <small>Cost per charge</small>
+                <strong>{formatMoney(results.costPerCharge)}</strong>
+              </div>
 
-                <h3>{results.recommendChargeTonight}</h3>
-                <p>{results.advice}</p>
+              <div className="tesla-mini-card">
+                <small>EV cost per km</small>
+                <strong>RM {results.evCostPerKm.toFixed(2)}</strong>
+              </div>
 
-                <div className="action-grid">
-                  <div className="action-box">
-                    <small>Recommended target</small>
-                    <strong>{chargePercent}%</strong>
-                  </div>
+              <div className="tesla-mini-card">
+                <small>Savings per km</small>
+                <strong>RM {results.savingsPerKm.toFixed(2)}</strong>
+              </div>
+            </div>
+          </div>
 
-                  <div className="action-box">
-                    <small>Expected EV range</small>
-                    <strong>
-                      {results.estimatedEvRangePerActualCharge.toFixed(0)} km
-                    </strong>
-                  </div>
+          <div className="tesla-right">
+            <img
+              src={carHero}
+              alt="PROTON e.MAS 7 PHEV"
+              className="tesla-car"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
 
-                  <div className="action-box">
-                    <small>Best mode today</small>
-                    <strong>{recommendedMode}</strong>
-                  </div>
+    <section className="dashboard-grid">
+      <section className="tesla-panel primary-panel">
+        <div className="panel-top">
+          <p className="panel-label">Smart assistant</p>
+          <span className="panel-chip">Live</span>
+        </div>
 
-                  <div className="action-box">
-                    <small>Rate source</small>
-                    <strong>{results.rateSource}</strong>
-                  </div>
-                </div>
-              </section>
+        <h3 className="panel-title">{results.recommendChargeTonight}</h3>
+        <p className="panel-text">{results.advice}</p>
 
-              <section className="home-group">
-                <div className="group-title">Cost</div>
-                <section className="stats-grid">
-                  <button className="card stat-card interactive" type="button">
-                    <p className="label">Cost per charge</p>
-                    <h3>{formatMoney(results.costPerCharge)}</h3>
-                    <span className="card-hint">Per charging session</span>
-                  </button>
+        <div className="assistant-grid">
+          <div className="assistant-box">
+            <small>Recommended target</small>
+            <strong>{chargePercent}%</strong>
+          </div>
+          <div className="assistant-box">
+            <small>Best mode today</small>
+            <strong>{recommendedMode}</strong>
+          </div>
+          <div className="assistant-box">
+            <small>Projected usage</small>
+            <strong>{formatKwh(results.newTotalKwh)}</strong>
+          </div>
+          <div className="assistant-box">
+            <small>Rate source</small>
+            <strong>{results.rateSource}</strong>
+          </div>
+        </div>
+      </section>
 
-                  <button className="card stat-card interactive" type="button">
-                    <p className="label">Monthly EV cost</p>
-                    <h3>{formatMoney(results.incrementalEvCost)}</h3>
-                    <span className="card-hint">Added home electricity</span>
-                  </button>
-                </section>
-              </section>
+      <section className="tesla-panel bill-panel">
+        <div className="panel-top">
+          <p className="panel-label">Bill impact</p>
+          <span className="panel-chip">This month</span>
+        </div>
 
-              <section className="home-group">
-                <div className="group-title">Efficiency</div>
-                <section className="stats-grid">
-                  <button
-                    className="card stat-card interactive positive"
-                    type="button"
-                  >
-                    <p className="label">EV cost per km</p>
-                    <h3>RM {results.evCostPerKm.toFixed(2)}</h3>
-                    <span className="card-hint">
-                      Estimated electric driving cost
-                    </span>
-                  </button>
+        <div className="bill-row-modern">
+          <div className="bill-modern-box">
+            <small>Current</small>
+            <strong>{formatMoney(results.currentBill.totalBill)}</strong>
+          </div>
 
-                  <button className="card stat-card interactive" type="button">
-                    <p className="label">Savings per km</p>
-                    <h3>RM {results.savingsPerKm.toFixed(2)}</h3>
-                    <span className="card-hint">Compared with petrol</span>
-                  </button>
-                </section>
-              </section>
+          <div className="bill-modern-divider" />
 
-              <section className="card premium-card">
-                <div className="card-header">
-                  <p className="label">Today</p>
-                  <span className="glass-chip">Quick view</span>
-                </div>
+          <div className="bill-modern-box">
+            <small>Projected</small>
+            <strong>{formatMoney(results.newBill.totalBill)}</strong>
+          </div>
+        </div>
 
-                <div className="today-grid">
-                  <div className="today-item">
-                    <small>Variant</small>
-                    <strong>{selectedVariant}</strong>
-                  </div>
-                  <div className="today-item">
-                    <small>Charge target</small>
-                    <strong>{chargePercent}%</strong>
-                  </div>
-                  <div className="today-item">
-                    <small>Projected usage</small>
-                    <strong>{formatKwh(results.newTotalKwh)}</strong>
-                  </div>
-                  <div className="today-item">
-                    <small>Recommended mode</small>
-                    <strong>{recommendedMode}</strong>
-                  </div>
-                </div>
-              </section>
+        <div className="bill-diff">
+          <span>Difference</span>
+          <strong>{formatMoney(billDifference)}</strong>
+        </div>
+      </section>
+    </section>
 
-              <section className="card premium-card">
-                <div className="card-header">
-                  <p className="label">Bill impact</p>
-                  <span className="glass-chip">Live estimate</span>
-                </div>
+    <section className="tesla-strip">
+      <div className="strip-card">
+        <small>Monthly EV cost</small>
+        <strong>{formatMoney(results.incrementalEvCost)}</strong>
+      </div>
 
-                <div className="bill-compare">
-                  <div className="bill-box">
-                    <small>Current bill</small>
-                    <strong>{formatMoney(results.currentBill.totalBill)}</strong>
-                  </div>
+      <div className="strip-card">
+        <small>Added EV kWh</small>
+        <strong>{formatKwh(results.monthlyEvKwh)}</strong>
+      </div>
 
-                  <div className="bill-arrow">→</div>
+      <div className="strip-card">
+        <small>Effective rate</small>
+        <strong>RM {results.newBill.effectiveRate.toFixed(3)}</strong>
+      </div>
 
-                  <div className="bill-box">
-                    <small>Projected bill</small>
-                    <strong>{formatMoney(results.newBill.totalBill)}</strong>
-                  </div>
-                </div>
-
-                <div className="summary-list summary-top-gap">
-                  <div className="summary-row">
-                    <span>Difference</span>
-                    <strong>{formatMoney(billDifference)}</strong>
-                  </div>
-                  <div className="summary-row">
-                    <span>Added EV kWh</span>
-                    <strong>{formatKwh(results.monthlyEvKwh)}</strong>
-                  </div>
-                  <div className="summary-row">
-                    <span>Effective new rate</span>
-                    <strong>
-                      RM {results.newBill.effectiveRate.toFixed(3)} / kWh
-                    </strong>
-                  </div>
-                  <div className="summary-row">
-                    <span>Rate source</span>
-                    <strong>{results.rateSource}</strong>
-                  </div>
-                </div>
-              </section>
-            </>
-          )}
+      <div className="strip-card positive-strip">
+        <small>Estimated monthly savings</small>
+        <strong>{formatMoney(results.estimatedSavings)}</strong>
+      </div>
+    </section>
+  </>
+)}
 
           {activeTab === "charge" && (
             <>
