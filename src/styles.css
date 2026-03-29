@@ -869,7 +869,6 @@ input[type="range"] {
   max-width: none;
   height: auto;
   object-fit: contain;
-  transform: translateX(46px) translateY(10px);
   filter:
     drop-shadow(0 28px 38px rgba(0, 0, 0, 0.45))
     drop-shadow(0 0 22px rgba(115, 240, 255, 0.08));
@@ -1130,7 +1129,7 @@ input[type="range"] {
 
   .tesla-car {
     width: 320px;
-    transform: translateX(18px) translateY(8px);
+   
   }
 
   .tesla-mini-stats,
@@ -1146,4 +1145,209 @@ input[type="range"] {
   .bill-modern-divider {
     display: none;
   }
+}
+/* ===== Premium motion system ===== */
+
+@keyframes softFloat {
+  0% {
+    transform: translateX(46px) translateY(10px);
+  }
+  50% {
+    transform: translateX(46px) translateY(4px);
+  }
+  100% {
+    transform: translateX(46px) translateY(10px);
+  }
+}
+
+@keyframes batteryGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(115, 240, 255, 0.18);
+    opacity: 0.92;
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(115, 240, 255, 0.35);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(115, 240, 255, 0.18);
+    opacity: 0.92;
+  }
+}
+
+@keyframes statusPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(115, 240, 255, 0.18);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(115, 240, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(115, 240, 255, 0);
+  }
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-140%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.18;
+  }
+  60% {
+    opacity: 0.08;
+  }
+  100% {
+    transform: translateX(160%);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeRise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Apply motion ===== */
+
+.tesla-hero,
+.tesla-panel,
+.strip-card,
+.tesla-mini-card,
+.bill-modern-box,
+.assistant-box {
+  animation: fadeRise 0.45s ease both;
+}
+
+.tesla-car {
+  animation: softFloat 4.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.battery-fill {
+  position: relative;
+  transition: width 0.55s ease;
+  animation: batteryGlow 2.6s ease-in-out infinite;
+}
+
+.battery-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.16) 45%,
+    transparent 100%
+  );
+  animation: shimmerSweep 2.8s ease-in-out infinite;
+}
+
+.smart-status .signal-dot,
+.tesla-status .signal-dot {
+  animation: statusPulse 2.2s infinite;
+}
+
+.interactive,
+.tesla-mini-card,
+.strip-card,
+.assistant-box,
+.bill-modern-box {
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.tesla-mini-card:hover,
+.strip-card:hover,
+.assistant-box:hover,
+.bill-modern-box:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.30),
+    0 0 0 1px rgba(115, 240, 255, 0.08);
+}
+
+.tesla-panel:hover {
+  border-color: rgba(115, 240, 255, 0.22);
+}
+
+.tesla-hero:hover {
+  border-color: rgba(115, 240, 255, 0.24);
+}
+
+.tesla-battery-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.tesla-battery-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 36%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.06),
+    transparent
+  );
+  transform: skewX(-18deg);
+  animation: shimmerSweep 5.5s ease-in-out infinite;
+}
+
+/* stagger feeling */
+.tesla-panel.primary-panel {
+  animation-delay: 0.05s;
+}
+
+.tesla-panel.bill-panel {
+  animation-delay: 0.12s;
+}
+
+.tesla-strip .strip-card:nth-child(1) {
+  animation-delay: 0.16s;
+}
+.tesla-strip .strip-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.tesla-strip .strip-card:nth-child(3) {
+  animation-delay: 0.24s;
+}
+.tesla-strip .strip-card:nth-child(4) {
+  animation-delay: 0.28s;
+}
+
+/* reduce motion respect */
+@media (prefers-reduced-motion: reduce) {
+  .tesla-car,
+  .battery-fill,
+  .battery-fill::after,
+  .smart-status .signal-dot,
+  .tesla-status .signal-dot,
+  .tesla-battery-card::after,
+  .tesla-hero,
+  .tesla-panel,
+  .strip-card,
+  .tesla-mini-card,
+  .bill-modern-box,
+  .assistant-box {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.tesla-title {
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.28);
 }
