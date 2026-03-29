@@ -10,10 +10,19 @@ const KWTBB_RATE = 0.016;
 const SERVICE_TAX_RATE = 0.08;
 const ST_THRESHOLD_KWH = 600;
 
-const variants = {
-  Prime: 18.4,
-  Premium: 18.4,
-  "Premium Plus": 29.8,
+const variantSpecs = {
+  Prime: {
+    batteryKwh: 18.4,
+    evRangeKm: 105,
+  },
+  Premium: {
+    batteryKwh: 18.4,
+    evRangeKm: 105,
+  },
+  "Premium Plus": {
+    batteryKwh: 29.8,
+    evRangeKm: 170,
+  },
 };
 
 const guideArticles = [
@@ -125,6 +134,7 @@ const guideArticles = [
     content:
       "Charging adds to your home usage, but the overall cost is usually still lower than petrol, especially with efficient charging habits.",
   },
+
   {
     title: "What happens when the battery gets low?",
     category: "Battery",
@@ -215,120 +225,110 @@ const guideArticles = [
     content:
       "As a new owner, focus on battery percentage, estimated EV range, energy flow, charging status, and any charging-related settings shown on the main screen.",
   },
+
   {
-    title: "What is the best mode for city driving?",
+    title: "How many driving modes does the e.MAS 7 PHEV have?",
     category: "Modes",
     content:
-      "For short city trips, EV or Pure mode is usually best if you have enough battery. It is quieter and cheaper to run.",
+      "The brochure shows 3 driver-selectable driving modes: Pure, Hybrid, and Power. These are the main modes you choose directly.",
+  },
+  {
+    title: "What does Pure mode do?",
+    category: "Modes",
+    content:
+      "Pure mode focuses on electric driving. It is best for shorter daily trips, smoother city driving, and situations where you want quieter and cheaper EV-style driving.",
+  },
+  {
+    title: "When should I use Pure mode?",
+    category: "Modes",
+    content:
+      "Use Pure mode for short city trips, nearby errands, school runs, and regular daily driving when you still have enough battery available.",
+  },
+  {
+    title: "What does Hybrid mode do?",
+    category: "Modes",
+    content:
+      "Hybrid mode lets the car manage battery and engine more intelligently for mixed driving. It is usually the easiest everyday mode when your route includes different speeds or longer distances.",
   },
   {
     title: "When should I use Hybrid mode?",
     category: "Modes",
     content:
-      "Use Hybrid mode for mixed driving, longer trips, or when you want the car to manage EV and petrol more efficiently.",
+      "Use Hybrid mode for mixed city and highway driving, daily commuting, or anytime you want the car to balance efficiency and convenience automatically.",
   },
   {
-  title: "How many driving modes does the e.MAS 7 PHEV have?",
-  category: "Modes",
-  content:
-    "The brochure shows 3 driver-selectable driving modes: Pure, Hybrid, and Power. These are the main modes you choose directly.",
-},
-{
-  title: "What does Pure mode do?",
-  category: "Modes",
-  content:
-    "Pure mode focuses on electric driving. It is best for shorter daily trips, smoother city driving, and situations where you want quieter and cheaper EV-style driving.",
-},
-{
-  title: "When should I use Pure mode?",
-  category: "Modes",
-  content:
-    "Use Pure mode for short city trips, school runs, nearby errands, and regular daily driving when you still have enough battery available.",
-},
-{
-  title: "What does Hybrid mode do?",
-  category: "Modes",
-  content:
-    "Hybrid mode lets the car manage battery and engine more intelligently for mixed driving. It is usually the easiest everyday mode when your route includes different speeds or longer distances.",
-},
-{
-  title: "When should I use Hybrid mode?",
-  category: "Modes",
-  content:
-    "Use Hybrid mode for mixed city and highway driving, daily commuting, or anytime you want the car to balance efficiency and convenience automatically.",
-},
-{
-  title: "What does Power mode do?",
-  category: "Modes",
-  content:
-    "Power mode is for stronger performance and quicker response. It is more useful when you want more urgent acceleration rather than maximum efficiency.",
-},
-{
-  title: "When should I use Power mode?",
-  category: "Modes",
-  content:
-    "Use Power mode when overtaking, joining faster traffic, climbing harder routes, or when you want a more responsive driving feel.",
-},
-{
-  title: "Which mode is best for daily use?",
-  category: "Modes",
-  content:
-    "For many drivers, Hybrid mode is the safest all-round choice for daily use. Pure mode is best when you want to maximize electric driving, while Power mode is more situational.",
-},
-{
-  title: "Which mode saves the most energy?",
-  category: "Modes",
-  content:
-    "Pure mode is usually the best choice for maximizing electric-only use in suitable daily driving conditions. Smooth driving habits still matter whichever mode you use.",
-},
-{
-  title: "Do I need to keep changing modes all the time?",
-  category: "Modes",
-  content:
-    "Not necessarily. Many owners can leave the car in Hybrid mode most of the time, then switch to Pure for shorter EV-focused trips or Power when stronger acceleration is needed.",
-},
-{
-  title: "What is the difference between driving modes and power transitions?",
-  category: "Modes",
-  content:
-    "Driving modes are the ones you select yourself: Pure, Hybrid, and Power. Power transitions are the automatic ways the car uses battery and engine in the background while you drive.",
-},
-{
-  title: "What are the automatic power transitions?",
-  category: "Modes",
-  content:
-    "The brochure describes four automatic operating states: Electric-only drive, Range-extended electric drive, Direct-engine drive, and Dual-powered drive.",
-},
-{
-  title: "What is Electric-only drive?",
-  category: "Modes",
-  content:
-    "This is when the wheels are driven only by the electric motor. The brochure links this to higher battery state of charge and city driving situations.",
-},
-{
-  title: "What is Range-extended electric drive?",
-  category: "Modes",
-  content:
-    "This is when the engine generates power for the motor and battery while the wheels are still driven by the motor. It is part of the car's automatic energy management.",
-},
-{
-  title: "What is Direct-engine drive?",
-  category: "Modes",
-  content:
-    "This is when the wheels are driven by the engine. The brochure associates this with lower battery state of charge and highway cruising conditions.",
-},
-{
-  title: "What is Dual-powered drive?",
-  category: "Modes",
-  content:
-    "This is when the engine and electric motor work together to drive the wheels. The brochure links this to harder acceleration and overtaking situations.",
-},
-{
-  title: "What is the easiest way for a new owner to use modes?",
-  category: "Modes",
-  content:
-    "Start simple: use Hybrid as your default, Pure for short EV-friendly trips, and Power only when you want stronger response. Let the car handle the background transitions automatically.",
-},
+    title: "What does Power mode do?",
+    category: "Modes",
+    content:
+      "Power mode is for stronger performance and quicker response. It is more useful when you want more urgent acceleration rather than maximum efficiency.",
+  },
+  {
+    title: "When should I use Power mode?",
+    category: "Modes",
+    content:
+      "Use Power mode when overtaking, joining faster traffic, climbing steeper routes, or when you want a more responsive driving feel.",
+  },
+  {
+    title: "Which mode is best for daily use?",
+    category: "Modes",
+    content:
+      "For many drivers, Hybrid mode is the safest all-round choice for daily use. Pure mode is best when you want to maximize electric driving, while Power mode is more situational.",
+  },
+  {
+    title: "Which mode saves the most energy?",
+    category: "Modes",
+    content:
+      "Pure mode is usually the best choice for maximizing electric-only use in suitable daily driving conditions. Smooth driving habits still matter whichever mode you use.",
+  },
+  {
+    title: "Do I need to keep changing modes all the time?",
+    category: "Modes",
+    content:
+      "Not necessarily. Many owners can leave the car in Hybrid mode most of the time, then switch to Pure for shorter EV-focused trips or Power when stronger acceleration is needed.",
+  },
+  {
+    title: "What is the difference between driving modes and power transitions?",
+    category: "Modes",
+    content:
+      "Driving modes are the ones you select yourself: Pure, Hybrid, and Power. Power transitions are the automatic ways the car uses battery and engine in the background while you drive.",
+  },
+  {
+    title: "What are the automatic power transitions?",
+    category: "Modes",
+    content:
+      "The brochure describes four automatic operating states: Electric-only drive, Range-extended electric drive, Direct-engine drive, and Dual-powered drive.",
+  },
+  {
+    title: "What is Electric-only drive?",
+    category: "Modes",
+    content:
+      "This is when the wheels are driven only by the electric motor. The brochure links this to higher battery state of charge and city driving situations.",
+  },
+  {
+    title: "What is Range-extended electric drive?",
+    category: "Modes",
+    content:
+      "This is when the engine generates power for the motor and battery while the wheels are still driven by the motor. It is part of the car's automatic energy management.",
+  },
+  {
+    title: "What is Direct-engine drive?",
+    category: "Modes",
+    content:
+      "This is when the wheels are driven by the engine. The brochure associates this with lower battery state of charge and highway cruising conditions.",
+  },
+  {
+    title: "What is Dual-powered drive?",
+    category: "Modes",
+    content:
+      "This is when the engine and electric motor work together to drive the wheels. The brochure links this to harder acceleration and overtaking situations.",
+  },
+  {
+    title: "What is the easiest way for a new owner to use modes?",
+    category: "Modes",
+    content:
+      "Start simple: use Hybrid as your default, Pure for short EV-friendly trips, and Power only when you want stronger response. Let the car handle the background transitions automatically.",
+  },
+
   {
     title: "Why should I watch 600 kWh at home?",
     category: "Savings",
@@ -341,18 +341,21 @@ const guideArticles = [
     content:
       "Usually yes, especially if your previous petrol cost was high. The portal compares your estimated EV charging cost against your current fuel spending.",
   },
+
   {
     title: "How should I prepare for a long trip?",
     category: "Long Trip",
     content:
       "Start with a good charge if possible, but do not worry too much. A PHEV still has petrol backup, which makes long-distance travel easier than a full EV.",
   },
+
   {
     title: "What is the simplest way to use a PHEV?",
     category: "Basics",
     content:
       "Charge when useful, drive normally, use EV for short trips, and let Hybrid mode help for mixed or longer journeys.",
   },
+
   {
     title: "How do I start using the main screen?",
     category: "Screen & App",
@@ -441,11 +444,13 @@ export default function App() {
   const [activeTab, setActiveTab] = useState("home");
 
   const [selectedVariant, setSelectedVariant] = useState("Premium");
-  const [batteryKwh, setBatteryKwh] = useState(variants.Premium);
+  const [batteryKwh, setBatteryKwh] = useState(variantSpecs.Premium.batteryKwh);
+  const [evRangeKm, setEvRangeKm] = useState(variantSpecs.Premium.evRangeKm);
   const [householdKwh, setHouseholdKwh] = useState(329);
   const [chargesPerMonth, setChargesPerMonth] = useState(15);
   const [chargePercent, setChargePercent] = useState(70);
   const [monthlyPetrolSpend, setMonthlyPetrolSpend] = useState(350);
+  const [petrolCostPerKm, setPetrolCostPerKm] = useState(0.18);
   const [carName, setCarName] = useState("PROTON e.MAS 7 PHEV Premium");
   const [customRate, setCustomRate] = useState("");
 
@@ -454,17 +459,20 @@ export default function App() {
 
   const handleVariantChange = (variant) => {
     setSelectedVariant(variant);
-    setBatteryKwh(variants[variant]);
+    setBatteryKwh(variantSpecs[variant].batteryKwh);
+    setEvRangeKm(variantSpecs[variant].evRangeKm);
     setCarName(`PROTON e.MAS 7 PHEV ${variant}`);
   };
 
   const results = useMemo(() => {
     const safeBatteryKwh = Number(batteryKwh) || 0;
+    const safeEvRangeKm = Number(evRangeKm) || 0;
     const safeHouseholdKwh = Number(householdKwh) || 0;
     const safeChargesPerMonth = Number(chargesPerMonth) || 0;
     const safeChargePercent = Number(chargePercent) || 0;
     const safeMonthlyPetrolSpend = Number(monthlyPetrolSpend) || 0;
     const safeCustomRate = Number(customRate) || 0;
+    const safePetrolCostPerKm = Number(petrolCostPerKm) || 0;
 
     const chargeKwh = safeBatteryKwh * (safeChargePercent / 100);
     const monthlyEvKwh = chargeKwh * safeChargesPerMonth;
@@ -498,6 +506,17 @@ export default function App() {
 
     const costPerCharge =
       safeChargesPerMonth > 0 ? incrementalEvCost / safeChargesPerMonth : 0;
+
+    const estimatedEvRangePerFullCharge = safeEvRangeKm;
+    const estimatedEvRangePerActualCharge =
+      estimatedEvRangePerFullCharge * (safeChargePercent / 100);
+
+    const evCostPerKm =
+      estimatedEvRangePerActualCharge > 0
+        ? costPerCharge / estimatedEvRangePerActualCharge
+        : 0;
+
+    const savingsPerKm = safePetrolCostPerKm - evCostPerKm;
 
     let zone = "Safe";
     let zoneClass = "safe";
@@ -541,13 +560,20 @@ export default function App() {
       recommendChargeTonight,
       chargeLevel,
       rateSource,
+      estimatedEvRangePerFullCharge,
+      estimatedEvRangePerActualCharge,
+      evCostPerKm,
+      savingsPerKm,
+      petrolCostPerKm: safePetrolCostPerKm,
     };
   }, [
     batteryKwh,
+    evRangeKm,
     householdKwh,
     chargesPerMonth,
     chargePercent,
     monthlyPetrolSpend,
+    petrolCostPerKm,
     customRate,
   ]);
 
@@ -592,7 +618,9 @@ export default function App() {
                   <div className="hero-copy">
                     <p className="label">Vehicle</p>
                     <h2>{carName}</h2>
-                    <p className="hero-meta">Battery size: {batteryKwh} kWh</p>
+                    <p className="hero-meta">
+                      Battery size: {batteryKwh} kWh • EV range: {evRangeKm} km
+                    </p>
 
                     <div className="hero-bottom">
                       <div className="mini-pill">
@@ -659,15 +687,15 @@ export default function App() {
                   className="card stat-card interactive positive"
                   type="button"
                 >
-                  <p className="label">Petrol savings</p>
-                  <h3>{formatMoney(results.estimatedSavings)}</h3>
-                  <span className="card-hint">Estimated monthly savings</span>
+                  <p className="label">EV cost per km</p>
+                  <h3>RM {results.evCostPerKm.toFixed(2)}</h3>
+                  <span className="card-hint">Estimated electric driving cost</span>
                 </button>
 
                 <button className="card stat-card interactive" type="button">
-                  <p className="label">New home usage</p>
-                  <h3>{formatKwh(results.newTotalKwh)}</h3>
-                  <span className="card-hint">Includes EV charging</span>
+                  <p className="label">Savings per km</p>
+                  <h3>RM {results.savingsPerKm.toFixed(2)}</h3>
+                  <span className="card-hint">Compared with petrol</span>
                 </button>
               </section>
 
@@ -731,7 +759,7 @@ export default function App() {
                       value={selectedVariant}
                       onChange={(e) => handleVariantChange(e.target.value)}
                     >
-                      {Object.keys(variants).map((variant) => (
+                      {Object.keys(variantSpecs).map((variant) => (
                         <option key={variant} value={variant}>
                           {variant}
                         </option>
@@ -750,6 +778,15 @@ export default function App() {
                     <p className="muted">
                       Prime and Premium share the same battery size. Differences
                       are mainly features.
+                    </p>
+                  </div>
+
+                  <div className="field">
+                    <label>Official EV range (km)</label>
+                    <input type="number" value={evRangeKm} readOnly />
+                    <p className="muted">
+                      Based on brochure/specification value for the selected
+                      variant.
                     </p>
                   </div>
 
@@ -809,6 +846,20 @@ export default function App() {
                       onChange={(e) => setMonthlyPetrolSpend(e.target.value)}
                     />
                   </div>
+
+                  <div className="field">
+                    <label>Petrol cost per km (RM)</label>
+                    <input
+                      type="number"
+                      step="0.01"
+                      value={petrolCostPerKm}
+                      onChange={(e) => setPetrolCostPerKm(e.target.value)}
+                    />
+                    <p className="muted">
+                      Example: 0.18 means RM0.18 per km for your current petrol
+                      car.
+                    </p>
+                  </div>
                 </div>
               </section>
 
@@ -830,6 +881,10 @@ export default function App() {
                   <div className="summary-row">
                     <span>Monthly added electricity cost</span>
                     <strong>{formatMoney(results.incrementalEvCost)}</strong>
+                  </div>
+                  <div className="summary-row">
+                    <span>Estimated EV range this charge</span>
+                    <strong>{results.estimatedEvRangePerActualCharge.toFixed(0)} km</strong>
                   </div>
                   <div className="summary-row">
                     <span>Rate source</span>
@@ -866,6 +921,22 @@ export default function App() {
                   <div className="summary-row">
                     <span>Estimated savings</span>
                     <strong>{formatMoney(results.estimatedSavings)}</strong>
+                  </div>
+                  <div className="summary-row">
+                    <span>EV cost per km</span>
+                    <strong>RM {results.evCostPerKm.toFixed(2)}</strong>
+                  </div>
+                  <div className="summary-row">
+                    <span>Petrol cost per km</span>
+                    <strong>RM {results.petrolCostPerKm.toFixed(2)}</strong>
+                  </div>
+                  <div className="summary-row">
+                    <span>Savings per km</span>
+                    <strong>RM {results.savingsPerKm.toFixed(2)}</strong>
+                  </div>
+                  <div className="summary-row">
+                    <span>Official EV range</span>
+                    <strong>{evRangeKm} km</strong>
                   </div>
                 </div>
               </section>
@@ -934,7 +1005,10 @@ export default function App() {
                 <section className="card premium-card">
                   <p className="label">Modes basics</p>
                   <p className="muted">
-                    The car gives you 3 driving modes you choose yourself: Pure, Hybrid, and Power. In the background, it also switches automatically between 4 power-operation states depending on battery level, speed, and driving situation.
+                    The car gives you 3 driving modes you choose yourself:
+                    Pure, Hybrid, and Power. In the background, it also switches
+                    automatically between 4 power-operation states depending on
+                    battery level, speed, and driving situation.
                   </p>
                 </section>
               )}
