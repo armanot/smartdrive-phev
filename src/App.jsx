@@ -30,101 +30,101 @@ const guideArticles = [
       "Not always. Full charging every night is useful only if you need the full EV range the next day. Partial charging is often more practical.",
   },
   {
-  title: "How often should I charge my PHEV?",
-  category: "Charging",
-  content:
-    "Charge based on your daily usage, not by habit. If your daily trips are short, charging every 1 to 2 days may already be enough.",
-},
-{
-  title: "Should I charge every night?",
-  category: "Charging",
-  content:
-    "Not necessarily. Charging every night is convenient but not always needed. If you still have enough battery for the next day, you can skip charging.",
-},
-{
-  title: "What is the best charging percentage for daily use?",
-  category: "Charging",
-  content:
-    "For daily driving, charging to around 60% to 80% is usually enough. Full charging is more useful when you expect longer trips.",
-},
-{
-  title: "When should I charge to 100%?",
-  category: "Charging",
-  content:
-    "Charge to 100% when you plan to use the full EV range, such as long commutes or multiple trips in a day.",
-},
-{
-  title: "Is it okay to leave the car plugged in overnight?",
-  category: "Charging",
-  content:
-    "Yes. Charging overnight is one of the most common and convenient ways to use a PHEV at home.",
-},
-{
-  title: "Should I charge immediately after driving?",
-  category: "Charging",
-  content:
-    "You can, but it is not required. Charging based on your next usage is more important than charging immediately after every drive.",
-},
-{
-  title: "What is the difference between home charging and public charging?",
-  category: "Charging",
-  content:
-    "Home charging is usually slower but more convenient and cheaper. Public charging is faster and useful when you need a quick top-up.",
-},
-{
-  title: "Is slow charging better for daily use?",
-  category: "Charging",
-  content:
-    "Yes. For daily use, slow home charging is usually sufficient and more practical for regular charging habits.",
-},
-{
-  title: "What happens if I stop charging halfway?",
-  category: "Charging",
-  content:
-    "Nothing harmful happens. Partial charging is normal and often recommended for daily driving.",
-},
-{
-  title: "How long does a full charge usually take?",
-  category: "Charging",
-  content:
-    "Charging time depends on your charger type. Home charging usually takes several hours, while faster chargers can reduce the time significantly.",
-},
-{
-  title: "Should I worry about charging too frequently?",
-  category: "Charging",
-  content:
-    "No. Frequent charging is part of normal PHEV usage. What matters more is charging based on actual driving needs.",
-},
-{
-  title: "Can I rely only on petrol and not charge?",
-  category: "Charging",
-  content:
-    "Yes, the car will still run using petrol. However, you lose the cost-saving and efficiency benefits of using electric driving.",
-},
-{
-  title: "What is the simplest charging habit for beginners?",
-  category: "Charging",
-  content:
-    "A simple habit is to charge when needed, avoid unnecessary full charges, and use home charging as your main routine.",
-},
-{
-  title: "Should I charge before a long trip?",
-  category: "Charging",
-  content:
-    "Yes, if possible. Starting with a charged battery helps improve efficiency and gives you more flexibility during the trip.",
-},
-{
-  title: "How do I know if I need to charge today?",
-  category: "Charging",
-  content:
-    "Check your remaining battery and think about your next trip. If your battery can cover your expected driving, charging may not be necessary.",
-},
-{
-  title: "Does charging increase my electricity bill a lot?",
-  category: "Charging",
-  content:
-    "Charging adds to your home usage, but the overall cost is usually still lower than petrol, especially with efficient charging habits.",
-},
+    title: "How often should I charge my PHEV?",
+    category: "Charging",
+    content:
+      "Charge based on your daily usage, not by habit. If your daily trips are short, charging every 1 to 2 days may already be enough.",
+  },
+  {
+    title: "Should I charge every night?",
+    category: "Charging",
+    content:
+      "Not necessarily. Charging every night is convenient but not always needed. If you still have enough battery for the next day, you can skip charging.",
+  },
+  {
+    title: "What is the best charging percentage for daily use?",
+    category: "Charging",
+    content:
+      "For daily driving, charging to around 60% to 80% is usually enough. Full charging is more useful when you expect longer trips.",
+  },
+  {
+    title: "When should I charge to 100%?",
+    category: "Charging",
+    content:
+      "Charge to 100% when you plan to use the full EV range, such as long commutes or multiple trips in a day.",
+  },
+  {
+    title: "Is it okay to leave the car plugged in overnight?",
+    category: "Charging",
+    content:
+      "Yes. Charging overnight is one of the most common and convenient ways to use a PHEV at home.",
+  },
+  {
+    title: "Should I charge immediately after driving?",
+    category: "Charging",
+    content:
+      "You can, but it is not required. Charging based on your next usage is more important than charging immediately after every drive.",
+  },
+  {
+    title: "What is the difference between home charging and public charging?",
+    category: "Charging",
+    content:
+      "Home charging is usually slower but more convenient and cheaper. Public charging is faster and useful when you need a quick top-up.",
+  },
+  {
+    title: "Is slow charging better for daily use?",
+    category: "Charging",
+    content:
+      "Yes. For daily use, slow home charging is usually sufficient and more practical for regular charging habits.",
+  },
+  {
+    title: "What happens if I stop charging halfway?",
+    category: "Charging",
+    content:
+      "Nothing harmful happens. Partial charging is normal and often recommended for daily driving.",
+  },
+  {
+    title: "How long does a full charge usually take?",
+    category: "Charging",
+    content:
+      "Charging time depends on your charger type. Home charging usually takes several hours, while faster chargers can reduce the time significantly.",
+  },
+  {
+    title: "Should I worry about charging too frequently?",
+    category: "Charging",
+    content:
+      "No. Frequent charging is part of normal PHEV usage. What matters more is charging based on actual driving needs.",
+  },
+  {
+    title: "Can I rely only on petrol and not charge?",
+    category: "Charging",
+    content:
+      "Yes, the car will still run using petrol. However, you lose the cost-saving and efficiency benefits of using electric driving.",
+  },
+  {
+    title: "What is the simplest charging habit for beginners?",
+    category: "Charging",
+    content:
+      "A simple habit is to charge when needed, avoid unnecessary full charges, and use home charging as your main routine.",
+  },
+  {
+    title: "Should I charge before a long trip?",
+    category: "Charging",
+    content:
+      "Yes, if possible. Starting with a charged battery helps improve efficiency and gives you more flexibility during the trip.",
+  },
+  {
+    title: "How do I know if I need to charge today?",
+    category: "Charging",
+    content:
+      "Check your remaining battery and think about your next trip. If your battery can cover your expected driving, charging may not be necessary.",
+  },
+  {
+    title: "Does charging increase my electricity bill a lot?",
+    category: "Charging",
+    content:
+      "Charging adds to your home usage, but the overall cost is usually still lower than petrol, especially with efficient charging habits.",
+  },
   {
     title: "What happens when the battery gets low?",
     category: "Battery",
@@ -132,95 +132,89 @@ const guideArticles = [
       "The petrol engine supports the car automatically. A PHEV does not become unusable just because the battery is low.",
   },
   {
-  title: "Is it okay to charge every day?",
-  category: "Battery",
-  content:
-    "Yes. Daily charging is normal for a PHEV, especially if you use the car often. What matters more is charging based on your actual driving needs rather than charging full all the time unnecessarily.",
-},
-{
-  title: "Should I always charge to 100%?",
-  category: "Battery",
-  content:
-    "Not always. If your next day's driving is short or moderate, charging to 60% to 80% may already be enough. Full charging makes more sense when you expect heavier use.",
-},
-{
-  title: "What happens when the battery is low?",
-  category: "Battery",
-  content:
-    "The car does not suddenly become unusable. In a PHEV, the petrol engine supports the car automatically, so you can continue driving normally.",
-},
-{
-  title: "Does AC use battery power?",
-  category: "Battery",
-  content:
-    "Yes. Air conditioning, especially in hot weather, can reduce EV-only efficiency. It does not usually cause a major problem, but it can shorten the electric range.",
-},
-{
-  title: "Does highway driving use battery faster?",
-  category: "Battery",
-  content:
-    "Usually yes. Higher speed tends to consume electric energy faster than steady city driving, so EV-only range is usually lower on highways.",
-},
-{
-  title: "Does slow driving save battery?",
-  category: "Battery",
-  content:
-    "Usually yes. Smooth city driving, gentle acceleration, and lower speeds generally help the battery last longer than aggressive driving.",
-},
-{
-  title: "Is fast charging bad for the battery?",
-  category: "Battery",
-  content:
-    "Fast charging is useful, especially when you need convenience, but frequent fast charging all the time is generally not as gentle as normal slower charging. For regular daily use, home charging is usually the better habit.",
-},
-{
-  title: "Is home charging better for daily use?",
-  category: "Battery",
-  content:
-    "Yes. Home charging is usually the most practical and comfortable way to keep your PHEV ready for daily driving, especially if you can charge overnight.",
-},
-{
-  title: "Why does my battery percentage drop faster some days?",
-  category: "Battery",
-  content:
-    "Battery use can vary depending on driving style, speed, traffic, air conditioning, terrain, passenger load, and whether the trip is short or long.",
-},
-{
-  title: "Should I worry if I do not charge for a few days?",
-  category: "Battery",
-  content:
-    "Not usually. A PHEV still has petrol backup, so the car remains usable. You simply lose some EV benefit until you charge again.",
-},
-{
-  title: "What is the best battery habit for a new owner?",
-  category: "Battery",
-  content:
-    "A simple habit is to charge based on your next day's needs, avoid unnecessary full charging every night, and use home charging as your regular routine.",
-},
-{
-  title: "Will battery size change how I use the car?",
-  category: "Battery",
-  content:
-    "Yes. A larger battery gives you more EV-only flexibility, but the best usage habit is still the same: charge according to your driving pattern and let the hybrid system help when needed.",
-},
-{
-  title: "Can I keep using the car even if I forget to charge?",
-  category: "Battery",
-  content:
-    "Yes. That is one of the main advantages of a PHEV. If the battery is low, the petrol engine can continue supporting your journey.",
-},
-{
-  title: "What causes battery efficiency to feel lower?",
-  category: "Battery",
-  content:
-    "Common reasons include high speed, heavy air conditioning use, steep roads, aggressive acceleration, extra vehicle load, and charging habits that do not match your driving needs.",
-},
-{
-  title: "What battery info should I check on the screen?",
-  category: "Battery",
-  content:
-    "As a new owner, focus on battery percentage, estimated EV range, energy flow, charging status, and any charging-related settings shown on the main screen.",
-},
+    title: "Is it okay to charge every day?",
+    category: "Battery",
+    content:
+      "Yes. Daily charging is normal for a PHEV, especially if you use the car often. What matters more is charging based on your actual driving needs rather than charging full all the time unnecessarily.",
+  },
+  {
+    title: "Should I always charge to 100%?",
+    category: "Battery",
+    content:
+      "Not always. If your next day's driving is short or moderate, charging to 60% to 80% may already be enough. Full charging makes more sense when you expect heavier use.",
+  },
+  {
+    title: "Does AC use battery power?",
+    category: "Battery",
+    content:
+      "Yes. Air conditioning, especially in hot weather, can reduce EV-only efficiency. It does not usually cause a major problem, but it can shorten the electric range.",
+  },
+  {
+    title: "Does highway driving use battery faster?",
+    category: "Battery",
+    content:
+      "Usually yes. Higher speed tends to consume electric energy faster than steady city driving, so EV-only range is usually lower on highways.",
+  },
+  {
+    title: "Does slow driving save battery?",
+    category: "Battery",
+    content:
+      "Usually yes. Smooth city driving, gentle acceleration, and lower speeds generally help the battery last longer than aggressive driving.",
+  },
+  {
+    title: "Is fast charging bad for the battery?",
+    category: "Battery",
+    content:
+      "Fast charging is useful, especially when you need convenience, but frequent fast charging all the time is generally not as gentle as normal slower charging. For regular daily use, home charging is usually the better habit.",
+  },
+  {
+    title: "Is home charging better for daily use?",
+    category: "Battery",
+    content:
+      "Yes. Home charging is usually the most practical and comfortable way to keep your PHEV ready for daily driving, especially if you can charge overnight.",
+  },
+  {
+    title: "Why does my battery percentage drop faster some days?",
+    category: "Battery",
+    content:
+      "Battery use can vary depending on driving style, speed, traffic, air conditioning, terrain, passenger load, and whether the trip is short or long.",
+  },
+  {
+    title: "Should I worry if I do not charge for a few days?",
+    category: "Battery",
+    content:
+      "Not usually. A PHEV still has petrol backup, so the car remains usable. You simply lose some EV benefit until you charge again.",
+  },
+  {
+    title: "What is the best battery habit for a new owner?",
+    category: "Battery",
+    content:
+      "A simple habit is to charge based on your next day's needs, avoid unnecessary full charging every night, and use home charging as your regular routine.",
+  },
+  {
+    title: "Will battery size change how I use the car?",
+    category: "Battery",
+    content:
+      "Yes. A larger battery gives you more EV-only flexibility, but the best usage habit is still the same: charge according to your driving pattern and let the hybrid system help when needed.",
+  },
+  {
+    title: "Can I keep using the car even if I forget to charge?",
+    category: "Battery",
+    content:
+      "Yes. That is one of the main advantages of a PHEV. If the battery is low, the petrol engine can continue supporting your journey.",
+  },
+  {
+    title: "What causes battery efficiency to feel lower?",
+    category: "Battery",
+    content:
+      "Common reasons include high speed, heavy air conditioning use, steep roads, aggressive acceleration, extra vehicle load, and charging habits that do not match your driving needs.",
+  },
+  {
+    title: "What battery info should I check on the screen?",
+    category: "Battery",
+    content:
+      "As a new owner, focus on battery percentage, estimated EV range, energy flow, charging status, and any charging-related settings shown on the main screen.",
+  },
   {
     title: "What is the best mode for city driving?",
     category: "Modes",
@@ -258,47 +252,47 @@ const guideArticles = [
       "Charge when useful, drive normally, use EV for short trips, and let Hybrid mode help for mixed or longer journeys.",
   },
   {
-  title: "How do I start using the main screen?",
-  category: "Screen & App",
-  content:
-    "Start by getting familiar with the home screen, climate controls, navigation, media, and vehicle settings. The main screen is the control center for many daily functions inside the car."
-},
-{
-  title: "What should I set up first after getting the car?",
-  category: "Screen & App",
-  content:
-    "Set up the Proton app, pair your phone, check connectivity, learn the shortcut icons, test voice command, and review vehicle settings before your first regular drive."
-},
-{
-  title: "Which functions are controlled from the mobile app?",
-  category: "Screen & App",
-  content:
-    "The app is typically used for remote access, status checking, and convenient pre-drive controls. It is useful for checking battery or vehicle information without sitting inside the car."
-},
-{
-  title: "Which functions should I use from the car screen?",
-  category: "Screen & App",
-  content:
-    "Use the in-car screen for navigation, media, climate, driving information, camera view, and settings that you need while seated in the vehicle."
-},
-{
-  title: "How do I use the voice assistant?",
-  category: "Screen & App",
-  content:
-    "Use voice command for simple hands-free actions like navigation, media, or climate adjustments. It is helpful when you want to reduce touching the screen while driving."
-},
-{
-  title: "Why does the car feel app-driven?",
-  category: "Screen & App",
-  content:
-    "Because many convenience features are connected digitally. The screen manages in-car functions, while the mobile app extends access and monitoring from outside the car."
-},
-{
-  title: "What should I learn first on the screen as a new owner?",
-  category: "Screen & App",
-  content:
-    "Focus first on home screen shortcuts, battery and energy information, charging-related info, navigation, climate control, phone connection, and settings."
-},
+    title: "How do I start using the main screen?",
+    category: "Screen & App",
+    content:
+      "Start by getting familiar with the home screen, climate controls, navigation, media, and vehicle settings. The main screen is the control center for many daily functions inside the car.",
+  },
+  {
+    title: "What should I set up first after getting the car?",
+    category: "Screen & App",
+    content:
+      "Set up the Proton app, pair your phone, check connectivity, learn the shortcut icons, test voice command, and review vehicle settings before your first regular drive.",
+  },
+  {
+    title: "Which functions are controlled from the mobile app?",
+    category: "Screen & App",
+    content:
+      "The app is typically used for remote access, status checking, and convenient pre-drive controls. It is useful for checking battery or vehicle information without sitting inside the car.",
+  },
+  {
+    title: "Which functions should I use from the car screen?",
+    category: "Screen & App",
+    content:
+      "Use the in-car screen for navigation, media, climate, driving information, camera view, and settings that you need while seated in the vehicle.",
+  },
+  {
+    title: "How do I use the voice assistant?",
+    category: "Screen & App",
+    content:
+      "Use voice command for simple hands-free actions like navigation, media, or climate adjustments. It is helpful when you want to reduce touching the screen while driving.",
+  },
+  {
+    title: "Why does the car feel app-driven?",
+    category: "Screen & App",
+    content:
+      "Because many convenience features are connected digitally. The screen manages in-car functions, while the mobile app extends access and monitoring from outside the car.",
+  },
+  {
+    title: "What should I learn first on the screen as a new owner?",
+    category: "Screen & App",
+    content:
+      "Focus first on home screen shortcuts, battery and energy information, charging-related info, navigation, climate control, phone connection, and settings.",
+  },
 ];
 
 const guideCategories = [
@@ -310,7 +304,6 @@ const guideCategories = [
   "Long Trip",
   "Basics",
   "Screen & App",
-
 ];
 
 function estimateBillFromKwh(totalKwh) {
@@ -321,7 +314,8 @@ function estimateBillFromKwh(totalKwh) {
 
   const subtotal = safeKwh * basePerKwh;
   const kwtbb = subtotal * KWTBB_RATE;
-  const serviceTax = safeKwh > ST_THRESHOLD_KWH ? subtotal * SERVICE_TAX_RATE : 0;
+  const serviceTax =
+    safeKwh > ST_THRESHOLD_KWH ? subtotal * SERVICE_TAX_RATE : 0;
   const totalBill = subtotal + kwtbb + serviceTax;
 
   return {
@@ -345,12 +339,13 @@ export default function App() {
   const [activeTab, setActiveTab] = useState("home");
 
   const [selectedVariant, setSelectedVariant] = useState("Premium");
-  const [batteryKwh, setBatteryKwh] = useState(variants["Premium"]);
+  const [batteryKwh, setBatteryKwh] = useState(variants.Premium);
   const [householdKwh, setHouseholdKwh] = useState(329);
   const [chargesPerMonth, setChargesPerMonth] = useState(15);
   const [chargePercent, setChargePercent] = useState(70);
   const [monthlyPetrolSpend, setMonthlyPetrolSpend] = useState(350);
   const [carName, setCarName] = useState("PROTON e.MAS 7 PHEV Premium");
+  const [customRate, setCustomRate] = useState("");
 
   const [guideSearch, setGuideSearch] = useState("");
   const [guideCategory, setGuideCategory] = useState("All");
@@ -367,15 +362,38 @@ export default function App() {
     const safeChargesPerMonth = Number(chargesPerMonth) || 0;
     const safeChargePercent = Number(chargePercent) || 0;
     const safeMonthlyPetrolSpend = Number(monthlyPetrolSpend) || 0;
+    const safeCustomRate = Number(customRate) || 0;
 
     const chargeKwh = safeBatteryKwh * (safeChargePercent / 100);
     const monthlyEvKwh = chargeKwh * safeChargesPerMonth;
     const newTotalKwh = safeHouseholdKwh + monthlyEvKwh;
 
-    const currentBill = estimateBillFromKwh(safeHouseholdKwh);
-    const newBill = estimateBillFromKwh(newTotalKwh);
+    let incrementalEvCost = 0;
+    let currentBill;
+    let newBill;
+    let rateSource = "Estimated tariff model";
 
-    const incrementalEvCost = newBill.totalBill - currentBill.totalBill;
+    if (safeCustomRate > 0) {
+      const currentCost = safeHouseholdKwh * safeCustomRate;
+      const newCost = newTotalKwh * safeCustomRate;
+
+      incrementalEvCost = newCost - currentCost;
+
+      currentBill = {
+        totalBill: currentCost,
+        effectiveRate: safeCustomRate,
+      };
+      newBill = {
+        totalBill: newCost,
+        effectiveRate: safeCustomRate,
+      };
+      rateSource = "Custom user rate";
+    } else {
+      currentBill = estimateBillFromKwh(safeHouseholdKwh);
+      newBill = estimateBillFromKwh(newTotalKwh);
+      incrementalEvCost = newBill.totalBill - currentBill.totalBill;
+    }
+
     const costPerCharge =
       safeChargesPerMonth > 0 ? incrementalEvCost / safeChargesPerMonth : 0;
 
@@ -420,8 +438,16 @@ export default function App() {
       advice,
       recommendChargeTonight,
       chargeLevel,
+      rateSource,
     };
-  }, [batteryKwh, householdKwh, chargesPerMonth, chargePercent, monthlyPetrolSpend]);
+  }, [
+    batteryKwh,
+    householdKwh,
+    chargesPerMonth,
+    chargePercent,
+    monthlyPetrolSpend,
+    customRate,
+  ]);
 
   const filteredGuides = useMemo(() => {
     return guideArticles.filter((article) => {
@@ -527,7 +553,10 @@ export default function App() {
                   <span className="card-hint">Based on added home bill</span>
                 </button>
 
-                <button className="card stat-card interactive positive" type="button">
+                <button
+                  className="card stat-card interactive positive"
+                  type="button"
+                >
                   <p className="label">Petrol savings</p>
                   <h3>{formatMoney(results.estimatedSavings)}</h3>
                   <span className="card-hint">Estimated monthly savings</span>
@@ -561,7 +590,13 @@ export default function App() {
                   </div>
                   <div className="summary-row">
                     <span>Effective new rate</span>
-                    <strong>RM {results.newBill.effectiveRate.toFixed(3)} / kWh</strong>
+                    <strong>
+                      RM {results.newBill.effectiveRate.toFixed(3)} / kWh
+                    </strong>
+                  </div>
+                  <div className="summary-row">
+                    <span>Rate source</span>
+                    <strong>{results.rateSource}</strong>
                   </div>
                 </div>
               </section>
@@ -587,7 +622,9 @@ export default function App() {
                   </div>
 
                   <div className="field">
-                    <label>Select Variant (affects features, not always battery)</label>
+                    <label>
+                      Select Variant (affects features, not always battery)
+                    </label>
                     <select
                       value={selectedVariant}
                       onChange={(e) => handleVariantChange(e.target.value)}
@@ -609,7 +646,23 @@ export default function App() {
                       onChange={(e) => setBatteryKwh(e.target.value)}
                     />
                     <p className="muted">
-                      Prime and Premium share the same battery size. Differences are mainly features.
+                      Prime and Premium share the same battery size. Differences
+                      are mainly features.
+                    </p>
+                  </div>
+
+                  <div className="field">
+                    <label>Electricity rate (RM per kWh)</label>
+                    <input
+                      type="number"
+                      step="0.01"
+                      placeholder="e.g. 0.55 (leave empty for auto)"
+                      value={customRate}
+                      onChange={(e) => setCustomRate(e.target.value)}
+                    />
+                    <p className="muted">
+                      Leave empty to use estimated TNB tariff. Enter your actual
+                      rate if you know it.
                     </p>
                   </div>
 
@@ -676,6 +729,10 @@ export default function App() {
                     <span>Monthly added electricity cost</span>
                     <strong>{formatMoney(results.incrementalEvCost)}</strong>
                   </div>
+                  <div className="summary-row">
+                    <span>Rate source</span>
+                    <strong>{results.rateSource}</strong>
+                  </div>
                 </div>
               </section>
             </>
@@ -689,7 +746,8 @@ export default function App() {
                   {formatMoney(results.estimatedSavings)}
                 </div>
                 <p className="muted">
-                  Estimated monthly savings compared with your current petrol spend.
+                  Estimated monthly savings compared with your current petrol
+                  spend.
                 </p>
               </section>
 
@@ -717,7 +775,9 @@ export default function App() {
               <section className="card premium-card">
                 <div className="card-header">
                   <p className="label">Guide search</p>
-                  <span className="glass-chip">{filteredGuides.length} results</span>
+                  <span className="glass-chip">
+                    {filteredGuides.length} results
+                  </span>
                 </div>
 
                 <div className="field">
@@ -745,27 +805,36 @@ export default function App() {
                   ))}
                 </div>
               </section>
+
               {guideCategory === "Battery" && (
                 <section className="card premium-card">
                   <p className="label">Battery basics</p>
                   <p className="muted">
-                    Focus on three things first: charge based on need, understand what happens when battery is low, and know that driving style affects EV efficiency.
+                    Focus on three things first: charge based on need,
+                    understand what happens when battery is low, and know that
+                    driving style affects EV efficiency.
                   </p>
                 </section>
               )}
+
               {guideCategory === "Charging" && (
-              <section className="card premium-card">
-                <p className="label">Charging basics</p>
-                <p className="muted">
-                  Charge based on your daily needs, not by habit. Partial charging is often enough, and home charging is usually the most practical routine.
-                </p>
-              </section>
-            )}
+                <section className="card premium-card">
+                  <p className="label">Charging basics</p>
+                  <p className="muted">
+                    Charge based on your daily needs, not by habit. Partial
+                    charging is often enough, and home charging is usually the
+                    most practical routine.
+                  </p>
+                </section>
+              )}
 
               <section className="guide-results">
                 {filteredGuides.length > 0 ? (
                   filteredGuides.map((article, index) => (
-                    <article key={index} className="card premium-card guide-card">
+                    <article
+                      key={index}
+                      className="card premium-card guide-card"
+                    >
                       <div className="guide-top">
                         <p className="label">{article.category}</p>
                       </div>
@@ -777,7 +846,8 @@ export default function App() {
                   <section className="card premium-card">
                     <p className="label">No results</p>
                     <p className="muted">
-                      Try another keyword like charge, battery, hybrid, or savings.
+                      Try another keyword like charge, battery, hybrid, or
+                      savings.
                     </p>
                   </section>
                 )}
